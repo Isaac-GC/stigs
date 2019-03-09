@@ -254,16 +254,16 @@ local BOOT_DEVICE_UUID=$(blkid /dev/sda1 | cut -d' ' -f3 | tr -d '"')
 #	V-81007 (UEFI)
 
 # Check if Fedora Server
-if [ ! -d "/boot/efi/EFI/fedora" ]; then 
-if ! grep -q $GRUB_SET_SUPERUSER_IF_EXIST /boot/efi/EFI/fedora/grub.cfg; then echo "$GRUB_SET_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section" ; fi
-if ! grep -q $GRUB_EXPORT_SUPERUSER_IF_EXIST /boot/efi/EFI/fedora/grub.cfg; then echo "$GRUB_EXPORT_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section"; fi
-fi
+# if [ ! -d "/boot/efi/EFI/fedora" ]; then 
+# if ! grep -q $GRUB_SET_SUPERUSER_IF_EXIST /boot/efi/EFI/fedora/grub.cfg; then echo "$GRUB_SET_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section" ; fi
+# if ! grep -q $GRUB_EXPORT_SUPERUSER_IF_EXIST /boot/efi/EFI/fedora/grub.cfg; then echo "$GRUB_EXPORT_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section"; fi
+# fi
 
-#Check if Redhat Server
-if [ ! -d "/boot/efi/EFI/redhat" ]; then 
-if ! grep -q $GRUB_SET_SUPERUSER_IF_EXIST /boot/efi/EFI/redhat/grub.cfg; then echo "$GRUB_SET_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section" ; fi
-if ! grep -q $GRUB_EXPORT_SUPERUSER_IF_EXIST /boot/efi/EFI/redhat/grub.cfg; then echo "$GRUB_EXPORT_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section"; fi
-fi
+# #Check if Redhat Server
+# if [ ! -d "/boot/efi/EFI/redhat" ]; then 
+# if ! grep -q $GRUB_SET_SUPERUSER_IF_EXIST /boot/efi/EFI/redhat/grub.cfg; then echo "$GRUB_SET_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section" ; fi
+# if ! grep -q $GRUB_EXPORT_SUPERUSER_IF_EXIST /boot/efi/EFI/redhat/grub.cfg; then echo "$GRUB_EXPORT_SUPERUSER_IF_EXIST  <=== DOES NOT EXIST, PLEASE MANUALLY ENTER IN THE /\ ### BEGIN /etc/grub.d/01_users ### /\ section"; fi
+# fi
 
 # Check /etc/grub.d/40_custom for valid entry
 # VULN ID: 
