@@ -237,8 +237,6 @@ Grub() {
 echo -n -e "\n\nEnter GRUB password for $HOSTNAME: "
 read -s GRUB_PASSWORD
 
-echo "$GRUB_PASSWORD"
-
 GRUB_PBKDF_HASH=`echo -e "$GRUB_PASSWORD\n$GRUB_PASSWORD" | grub2-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'`
 
 if [ -f /etc/grub.d/40_custom ]; then rm -f /etc/grub.d/40_custom; fi
@@ -537,8 +535,8 @@ if ! grep  'kernel.randomize_va_space' /etc/sysctl.conf /etc/sysctl.d/*; then ec
 if ! grep  "session required pam_lastlog.so showfailed" /etc/sysctl.conf /etc/sysctl.d/*; then echo "session required pam_lastlog.so showfailed" >> /etc/sysctl.conf; fi
 if ! grep  "password required pam_pwquality.so retry=3" /etc/sysctl.conf /etc/sysctl.d/*; then echo "password required pam_pwquality.so retry=3" >> /etc/sysctl.conf; fi
 
-#echo "session required pam_lastlog.so showfailed" >> /etc/pam.d/postlogin
-#echo "password required pam_pwquality.so retry=3" >> /etc/pam.d/system-auth
+echo "session required pam_lastlog.so showfailed" >> /etc/pam.d/postlogin
+echo "password required pam_pwquality.so retry=3" >> /etc/pam.d/system-auth
 
 sed -i 's/.*network_failure_action.*/network_failure_action = syslog/' /etc/clamd.d/scan.conf
 
