@@ -237,7 +237,7 @@ Grub() {
 #echo -n -e "\n\nEnter GRUB password for $HOSTNAME: "
 #read -s GRUB_PASSWORD
 
-GRUB_PASSWORD=!!!111aaaAAA222
+local GRUB_PASSWORD=!!!111aaaAAA222
 
 echo "$GRUB_PASSWORD"
 
