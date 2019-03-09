@@ -241,7 +241,7 @@ echo "$GRUB_PASSWORD"
 
 GRUB_PBKDF_HASH=`echo -e "$GRUB_PASSWORD\n$GRUB_PASSWORD" | grub2-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'`
 
-rm -f /etc/grub.d/40_custom
+if [ -f /etc/grub.d/40_custom ]; then rm -f /etc/grub.d/40_custom; fi
 
 local GRUB_SET_SUPERUSER_IF_EXIST=
 local GRUB_EXPORT_SUPERUSER_IF_EXIST=
@@ -476,8 +476,8 @@ cat << EOF >> /etc/audit/rules.d/audit.rules
 
 EOF
 
-echo -e -n "\n\nEnter the hostname or ip_address:port_number"
-read -s SYSLOG_AGG_SITE
+echo -e -n "\n\nEnter the hostname or ip_address:port_number: "
+read SYSLOG_AGG_SITE
 
 echo "*.* @@$SYSLOG_AGG_SITE" >> /etc/rsyslog.d/mil.conf
 echo -e "*\thard\tmaxlogins\t10" >> /etc/security/limits.conf
