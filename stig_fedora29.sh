@@ -642,4 +642,4 @@ cat /etc/fstab
 now=$(date+ + "%T")
 version=$(cat /etc/redhat-release)
 
-echo -e "\e[92m\nStigging of $HOSTNAME was completed at $now for $version"
+echo -e "\e[92m\nStigging of $HOSTNAME was completed at $now for $version\e[0m"
