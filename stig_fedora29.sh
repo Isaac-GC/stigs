@@ -236,7 +236,8 @@ Grub() {
 
 echo -n -e "\n\nEnter GRUB password for $HOSTNAME: "
 read -s GRUB_PASSWORD
-echo '$GRUB_PASSWORD'
+
+echo "$GRUB_PASSWORD"
 
 GRUB_PBKDF_HASH=`echo -e '$GRUB_PASSWORD\n$GRUB_PASSWORD' | grub2-mkpasswd-pbkdf2 | awk '/grub.pbkdf/{print$NF}'`
 
