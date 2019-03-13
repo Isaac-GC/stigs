@@ -637,7 +637,7 @@ echo -e "\n Ensure that /tmp is on its on file system with the attributes of: 'e
 echo -e "\n Ensure that /var/log/audit is on its on file system with the attributes of: 'ext4 default 1 2' #V-72063\n\n"
 cat /etc/fstab
 
-now=$(date +"%T")
+now=$(date)
 version=$(cat /etc/redhat-release)
 
 echo -e "\e[92m\nStigging of $HOSTNAME was completed at $now for $version\e[0m"
