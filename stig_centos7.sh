@@ -226,7 +226,7 @@ while true; do
 	echo -n -e "\n\nEnter GRUB password for $HOSTNAME: "
 	read -s GRUB_PASSWORD
 	echo -n -e "\n\nRe-enter GRUB password for $HOSTNAME: "
-	read -s VERIFY_GRUB_PASSWORD)
+	read -s VERIFY_GRUB_PASSWORD
 
 	if [[ $GRUB_PASSWORD == $VERIFY_GRUB_PASSWORD ]] ; then
 		if [[ $(validate_password $GRUB_PASSWORD) ]] ; then
