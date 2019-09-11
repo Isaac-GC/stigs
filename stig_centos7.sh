@@ -68,7 +68,7 @@ distro_check() {
 
 
 validate_password() {
-	$stat=1
+	stat=1
 	local password=$1
 	LEN=${#password}
 	if [[ "$LEN" -ge 8 ]]; then #[[ $pass =~ [0-9] ]] && [[ $pass =~ [a-z] ]] && [[ $pass =~ [A-Z] ]] && 
