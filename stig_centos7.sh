@@ -296,13 +296,13 @@ echo -e "${TICK}inished Configuring GRUB and generating new GRUB boot file"
 
 Install_Required_Programs() {
 
-$PKG_MANAGER update -y
-$PKG_MANAGER upgrade -y
+${PKG_MANAGER} update -y
+${PKG_MANAGER} upgrade -y
 
-$PKG_MANAGER install -y $DEPS_ADDED
-$PKG_MANAGER install -y openscap-scanner scap-security-guide
+${PKG_MANAGER} install -y $DEPS_ADDED
+${PKG_MANAGER} install -y openscap-scanner scap-security-guide
 
-$PKG_MANAGER remove -y $REMOVE_DEPS
+${PKG_MANAGER} remove -y $REMOVE_DEPS
 
 systemctl enable sshd
 
