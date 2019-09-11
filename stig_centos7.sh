@@ -295,6 +295,8 @@ echo -e "${TICK}inished Configuring GRUB and generating new GRUB boot file"
 
 
 Install_Required_Programs() {
+distro_check
+
 
 ${PKG_MANAGER} update -y
 ${PKG_MANAGER} upgrade -y
