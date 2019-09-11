@@ -71,7 +71,7 @@ validate_password() {
 	stat=1
 	local password=$1
 	LEN=${#password}
-	if [[ "$LEN" -ge 8 ]]; then #[[ $pass =~ [0-9] ]] && [[ $pass =~ [a-z] ]] && [[ $pass =~ [A-Z] ]] && 
+	if [[ $pass =~ [0-9] ]] && [[ $pass =~ [a-z] ]] && [[ $pass =~ [A-Z] ]] && [[ "$LEN" -ge 8 ]]; then #[[ $pass =~ [0-9] ]] && [[ $pass =~ [a-z] ]] && [[ $pass =~ [A-Z] ]] && 
 		stat=$?
 	fi
 	return $stat
@@ -229,7 +229,7 @@ while true; do
 	read -s VERIFY_GRUB_PASSWORD
 
 	if [[ $GRUB_PASSWORD == $VERIFY_GRUB_PASSWORD ]] ; then
-		if [[ $(validate_password $GRUB_PASSWORD) ]] ; then
+		if [[ ! $(validate_password $GRUB_PASSWORD) ]] ; then
 			break
 		else
 			echo -n -e "Password doesn't meet complexity requirements"
